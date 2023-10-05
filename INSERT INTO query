@@ -1,0 +1,62 @@
+-- various ways to insert the data into the table
+
+
+1. -- Standard INSERT
+
+/* Its a standard insert statement query in which it inserts into the table name Employees with the attributes named EmployeeID, FirstName, LastName and lastly HireDate
+and it insert the values given in the values paranthesis 1, 'John', 'Doe', and '2023-01-01' */
+
+INSERT INTO Employees(EmployeeID, FirstName, LastName, HireDate) VALUES( 1, 'John', 'Doe', '2023-01-01');
+
+
+2. -- with default values
+
+/* As we have already seen that Employees table consists of four attributs 
+but we have given the values for only three attributes and one attribute is empty */
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName) VALUES (2, 'John', 'Smith');
+
+
+3. -- INSERT multiple rows
+
+/* We can also insert many rows using the insert into query only once
+here instead of semi colon we use comma to include the other rows too */
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, HireDate) 
+VALUES (3, 'Alice', 'John', '2023-01-15'),
+	     (4, 'Bob', 'Will', '2023-02-20'),
+       (5, 'Eva', 'Brown', '2023-01-25');
+
+
+4. -- INSERT with SELECT
+
+/* Here we are selecting the rows from NewHires table and inserting them into the Employees
+by validating the type and the attributes */
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, HireDate) 
+SELECT EmployeeID, FirstName, LastName, HireDate 
+From NewHires;
+
+
+5. -- INSERT with subquery
+
+/* here in the insert query itself we have added a subquery 
+by providing the condition for the HireDate so those satisfy that condition from the TemporaryEmployees table
+will be added or inserted into the Employees table */
+
+INSERT INTO Employees(EmployeeID, FirstName, LastName)
+SELECT EmployeeID, FirstName, LastName
+FROM TemporaryEmplyees
+WHERE HireDate >= '2023-01-01';
+
+
+6. -- INSERT using column 
+
+/* here are using column aliases where the attribute name doesn't match up
+like we are saying from the TemporaryEmployees table take the Emp_id attribute and insert those values into the
+Employees table with the attribute named EmployeeId */
+
+INSERT INTO Employees(EmployeeID, FirstName, LastName)
+SELECT emp_id AS EmployeeID, first_name AS FirstName, last_name AS LastName
+FROM TemporaryEmployees;
+
