@@ -16,7 +16,7 @@ CREATE TABLE Employees(
 CREATE TABLE NewEmployees AS
 SELECT *
 FROM Employees
-WHERE Hiredate >= '2023-01-01':
+WHERE Hiredate >= '2023-01-01';
 
 
 3. -- SELECT INFO
