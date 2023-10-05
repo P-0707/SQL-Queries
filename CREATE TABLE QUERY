@@ -1,0 +1,43 @@
+-- Here we will seeing the most primary used ways to create a table using the CREATE TABLE query statement
+
+
+1. -- CREATE TABLE
+
+CREATE TABLE Employees(
+  EmployeeID INT PRIMARY KEY,
+  FirstName VARCHAR(25),
+  LastName VARCHAR(25),
+  HireDate DATE
+  );
+
+
+2. -- CREATE TABLE AS
+
+CREATE TABLE NewEmployees AS
+SELECT *
+FROM Employees
+WHERE Hiredate >= '2023-01-01':
+
+
+3. -- SELECT INFO
+ -- valid in SQL, but it may not work in all database systems as SQL syntax can vary between database management systems.
+
+CREATE TABLE NewEmployees1 AS
+SELECT *
+FROM Employees
+WHERE HireDate >= '2023-01-01';
+
+
+4. -- LIKE
+
+CREATE TABLE Employees1
+LIKE Employees;
+
+
+5. -- TEMPORTATY TABLE
+
+CREATE TEMPORARY TABLE TempEmployees (
+  EmployeeID INT,
+  FirstName VARCHAR(50),
+  LastName VARCHAR(50)
+);
